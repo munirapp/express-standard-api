@@ -1,0 +1,28 @@
+{
+  "name": "express-standard-api",
+  "version": "1.0.0",
+  "description": "Standard API with Express",
+  "scripts": {
+    "serve": "ts-node ./src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/munirapp/express-standard-api.git"
+  },
+  "keywords": [],
+  "author": "Munir AP",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/munirapp/express-standard-api/issues"
+  },
+  "homepage": "https://github.com/munirapp/express-standard-api#readme",
+  "dependencies": {
+    "@types/node": "^14.0.27",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  }
+}
