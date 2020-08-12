@@ -17,7 +17,7 @@ bash migrate.sh
 npm run dev
 ```
 
-### Production Intallation (Manual)
+### Production Installation (Manual)
 
 ```
 npm run build
