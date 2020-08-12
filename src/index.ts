@@ -2,6 +2,7 @@ import * as dotenv from "dotenv";
 import * as express from "express";
 import * as cors from "cors";
 import * as bodyParser from "body-parser";
+import routes from "./routes";
 
 // Initiate express
 const app = express();
@@ -15,10 +16,8 @@ app.use(bodyParser.json());
 // Initiate dotenv
 dotenv.config();
 
-// Initiate Route
-app.use("/", (req, res) => {
-  res.send("Hello world");
-});
+// Initiate Routes
+app.use("/", routes);
 
 // Listen and running server
 app.listen(process.env.SERVER_PORT, () => {

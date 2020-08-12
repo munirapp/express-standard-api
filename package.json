@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Standard API with Express",
   "scripts": {
-    "dev": "ts-node ./src/index.ts",
+    "dev": "nodemon ./src/index.ts",
     "build": "tsc",
     "prod": "npm run build && nodemon ./dist/index.js"
   },
@@ -24,7 +24,9 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "knex": "^0.21.4",
     "nodemon": "^2.0.4",
+    "pg": "^8.3.0",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.7"
   }
