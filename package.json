@@ -6,7 +6,7 @@
     "dev": "nodemon ./src/index.ts",
     "initDB": "knex init -x ts",
     "build": "tsc",
-    "prod": "npm run build && nodemon ./dist/index.js"
+    "prod": "nodemon ./dist/src/index.js"
   },
   "repository": {
     "type": "git",

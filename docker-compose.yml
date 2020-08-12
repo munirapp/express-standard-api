@@ -1,5 +1,14 @@
 version: "3.8"
 services:
+  web:
+    image: munirapp/nodejs-app
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "5000:5000"
+    command: bash -c "bash migrate.sh && npm run prod"
+
   db:
     image: postgres
     environment:
@@ -9,17 +18,19 @@ services:
     volumes:
       - ./pgdata:/var/lib/postgresql/data
     ports:
-      - "2345:5432"
+      - "5432:5432"
 
   redis:
     image: redis
     ports:
       - "6379:6379"
 
-  web:
-    image: munirapp/nodejs-app
+  adminer:
+    image: adminer
+    restart: always
     depends_on:
       - db
-      - redis
+    environment:
+      ADMINER_DESIGN: arcs-material
     ports:
-      - "5000:5000"
+      - "8080:8080"

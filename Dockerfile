@@ -5,4 +5,4 @@ RUN npm install
 COPY . .
 RUN mv .env.example .env
 EXPOSE 5000
-CMD [ "npm","run","prod" ]
+CMD [ "npm","run","build" ]
