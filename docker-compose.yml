@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: standard-api
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - "2345:5432"
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+
+  web:
+    image: munirapp/nodejs-app
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "5000:5000"
