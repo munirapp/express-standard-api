@@ -8,17 +8,32 @@ a Boilerplate for Node Express REST API
 - Utility : Nodemon, Docker, Knex
 - Database : PostgreSQL, Redis
 
-### Dev Installation
+### Development Installation
 
 ```
+mv .env.example .env
 npm install
 bash migrate.sh
 npm run dev
 ```
 
-### Prod Installation (With Docker)
+### Production Intallation (Manual)
+
+```
+npm run build
+npm run prod
+```
+
+### Production Installation (With Docker)
 
 ```
 # Automatically Build Docker Image and trigger docker-compose
 bash server.sh
 ```
+
+List Ports Docker Containers
+
+- 5000 : Express Rest API
+- 5432 : PostgreSQL
+- 6379 : Redis
+- 8080 : Adminer
