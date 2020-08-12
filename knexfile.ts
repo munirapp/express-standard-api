@@ -1,9 +1,6 @@
-import * as dotenv from "dotenv";
+require("dotenv/config");
 
-// Initiate dotenv
-dotenv.config();
-
-export default {
+module.exports = {
   client: "pg",
   connection: {
     host: process.env.DB_HOST,

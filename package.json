@@ -4,6 +4,7 @@
   "description": "Standard API with Express",
   "scripts": {
     "dev": "nodemon ./src/index.ts",
+    "initDB": "knex init -x ts",
     "build": "tsc",
     "prod": "npm run build && nodemon ./dist/index.js"
   },
