@@ -34,6 +34,6 @@ bash server.sh
 List Ports Docker Containers
 
 - 5000 : Express Rest API
-- 5432 : PostgreSQL
+- 5400 : PostgreSQL (5432 in Docker)
 - 6379 : Redis
 - 8080 : Adminer
