@@ -1,17 +1,41 @@
 import profile from "../models/profile";
 import response from "../helper/response";
+import redisClient from "../../redis";
+import { promisify } from "util";
+
+// Wrapper redis get and set in Promise
+const redisGetAsync = promisify(redisClient.get).bind(redisClient);
+const redisSetAsync = promisify(redisClient.setex).bind(redisClient);
 
 class ProfileControllers {
   async getAllProfile(req, res) {
+    let dataAllProfile = null;
+    let time = response.start_time();
+
     try {
-      // Get All Profile from Database
-      const dbAllProfile = await profile.all();
-      // Return Success response
+      // Get All Profile in Redis
+      dataAllProfile = await redisGetAsync("allProfile");
+      // Validate Cache
+      if (!dataAllProfile) {
+        // Get All Profile from Database
+        dataAllProfile = await profile.all();
+        // Set data in Redis for 5 minutes
+        await redisSetAsync("allProfile", 300, JSON.stringify(dataAllProfile));
+        // Return Success response data from database
+        return res.json(
+          response.format(
+            time,
+            dataAllProfile,
+            "success load data from database"
+          )
+        );
+      }
+      // Return Success response data from redis
       return res.json(
         response.format(
-          response.start_time(),
-          dbAllProfile,
-          "success load data"
+          time,
+          JSON.parse(dataAllProfile),
+          "success load data from cache"
         )
       );
     } catch (error) {
@@ -26,14 +50,14 @@ class ProfileControllers {
       const { number } = req.params;
       const limit = 10;
       const offset = number ? limit * number : 0;
-      // Get All Profile from Database
+      // Get Paginate Profile from Database
       const dbPaginateProfile = await profile.paginate(limit, offset);
       // Return Success response
       return res.json(
         response.format(
           response.start_time(),
           dbPaginateProfile,
-          "success load data"
+          "success load data from database"
         )
       );
     } catch (error) {
@@ -53,7 +77,7 @@ class ProfileControllers {
           message: "ID can't be empty or must larger than zero",
         };
       }
-      // Get All Profile from Database
+      // Get Detail Profile from Database
       const dbProfileID = await profile.findByID(id);
       // Validate result databse
       if (dbProfileID.rows == 0) {
@@ -61,7 +85,11 @@ class ProfileControllers {
       }
       // Return Success response
       return res.json(
-        response.format(response.start_time(), dbProfileID, "success load data")
+        response.format(
+          response.start_time(),
+          dbProfileID,
+          "success load data from database"
+        )
       );
     } catch (error) {
       // Validate and Return Error response
