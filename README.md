@@ -1,7 +1,11 @@
 # :spider_web: Express Standard API
 
 [![License: MIT](https://img.shields.io/github/license/munirapp/express-standard-api?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![](https://img.shields.io/github/stars/munirapp/express-standard-api?style=for-the-badge)](https://github.com/munirapp/express-standard-api/stargazers)
+[![Star](https://img.shields.io/github/stars/munirapp/express-standard-api?style=for-the-badge)](https://github.com/munirapp/express-standard-api/stargazers)
+[![Last Commit](https://img.shields.io/github/last-commit/munirapp/express-standard-api?style=for-the-badge)](https://github.com/munirapp/express-standard-api/commits/master)
+&nbsp;
+
+[![Typescript](https://img.shields.io/github/package-json/dependency-version/munirapp/express-standard-api/typescript)](https://www.npmjs.com/package/typescript)
 
 a Standard Boilerplate for Node Express REST API
 
