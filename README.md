@@ -36,7 +36,7 @@ npm run build
 npm run prod
 ```
 
-### With Docker
+### :whale: With Docker
 
 ```
 // Automatically Build Docker Image and trigger docker-compose (Running in Bash Terminal or WSL)
@@ -47,7 +47,7 @@ docker build -t munirapp/nodejs-app
 docker-compose up
 ```
 
-### List Ports Docker Containers
+### :whale: List Ports Docker Containers
 
 - 5000:5000 Express Rest API
 - 5400:5432 PostgreSQL
