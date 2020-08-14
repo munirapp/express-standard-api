@@ -41,3 +41,12 @@ docker-compose up
 - 5400 : PostgreSQL (5432 in Docker)
 - 6379 : Redis
 - 8080 : Adminer
+
+## Running Unit Test
+
+```
+npm run build
+npm run test
+```
+
+Note: Automatically testing when running apps via Docker
