@@ -1,14 +1,14 @@
-# Express Standard API
+# :spider_web: Express Standard API
 
 a Standard Boilerplate for Node Express REST API
 
-## Dependencies
+## :gear: Dependencies
 
 - Language : Typescript/Javascript
 - Utility : Nodemon, Docker, Knex
 - Database : PostgreSQL, Redis
 
-## Development Installation
+## :astronaut: Development Installation
 
 ```
 mv .env.example .env
@@ -17,14 +17,14 @@ bash migrate.sh
 npm run dev
 ```
 
-## Production Installation (Manual)
+## :rocket: Production Installation (Manual)
 
 ```
 npm run build
 npm run prod
 ```
 
-## Production Installation (With Docker)
+## :rocket: Production Installation (With Docker)
 
 ```
 // Automatically Build Docker Image and trigger docker-compose (Running in Bash Terminal or WSL)
@@ -42,7 +42,7 @@ docker-compose up
 - 6379 : Redis
 - 8080 : Adminer
 
-## Running Unit Test
+## :test_tube: Running Unit Test
 
 ```
 npm run build
