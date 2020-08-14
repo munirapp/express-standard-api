@@ -6,6 +6,9 @@
 &nbsp;
 
 [![Typescript](https://img.shields.io/github/package-json/dependency-version/munirapp/express-standard-api/typescript)](https://www.npmjs.com/package/typescript)
+[![Nodemon](https://img.shields.io/github/package-json/dependency-version/munirapp/express-standard-api/nodemon?color=green)](https://www.npmjs.com/package/nodemon)
+[![Knex](https://img.shields.io/github/package-json/dependency-version/munirapp/express-standard-api/knex?color=orange)](https://www.npmjs.com/package/knex)
+[![Redis](https://img.shields.io/github/package-json/dependency-version/munirapp/express-standard-api/redis?color=red)](https://www.npmjs.com/package/redis)
 
 a Standard Boilerplate for Node Express REST API
 
