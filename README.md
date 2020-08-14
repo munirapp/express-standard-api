@@ -17,14 +17,16 @@ bash migrate.sh
 npm run dev
 ```
 
-## :rocket: Production Installation (Manual)
+## :rocket: Production Installation
+
+### Manual
 
 ```
 npm run build
 npm run prod
 ```
 
-## :rocket: Production Installation (With Docker)
+### With Docker
 
 ```
 // Automatically Build Docker Image and trigger docker-compose (Running in Bash Terminal or WSL)
@@ -37,10 +39,10 @@ docker-compose up
 
 ### List Ports Docker Containers
 
-- 5000 : Express Rest API
-- 5400 : PostgreSQL (5432 in Docker)
-- 6379 : Redis
-- 8080 : Adminer
+- 5000:5000 Express Rest API
+- 5400:5432 PostgreSQL
+- 6379:6379 Redis
+- 8080:8080 Adminer
 
 ## :test_tube: Running Unit Test
 
@@ -49,4 +51,4 @@ npm run build
 npm run test
 ```
 
-Note: Automatically testing when running apps via Docker
+**Note**: Automatically testing when running apps via Docker
