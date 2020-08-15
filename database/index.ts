@@ -1,3 +1,4 @@
-const config = require("../knexfile");
-const knex = require("knex")(config);
-export default knex;
+import * as config from "../knexfile";
+import * as knex from "knex";
+
+export default knex(config);

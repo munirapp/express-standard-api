@@ -6,16 +6,12 @@ import routes from "./routes";
 
 // Initiate express
 const app = express();
-
 // Use Cors
 app.use(cors());
-
 // Use Bodyparser
 app.use(bodyParser.json());
-
-// Initiate dotenv
+// Initiate dotenv config
 dotenv.config();
-
 // Initiate Routes
 app.use("/", routes);
 
