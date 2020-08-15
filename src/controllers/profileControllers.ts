@@ -1,11 +1,6 @@
 import profile from "../models/profile";
 import response from "../helper/response";
-import redisClient from "../../redis";
-import { promisify } from "util";
-
-// Wrapper redis get and set in Promise
-const redisGetAsync = promisify(redisClient.get).bind(redisClient);
-const redisSetAsync = promisify(redisClient.setex).bind(redisClient);
+import { redisGetAsync, redisSetAsync } from "../../redis";
 
 class ProfileControllers {
   async getAllProfile(req, res) {

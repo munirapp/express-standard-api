@@ -1,6 +1,8 @@
-require("dotenv/config");
+import * as dotenv from "dotenv";
 
-module.exports = {
+dotenv.config();
+
+const options = {
   client: "pg",
   connection: {
     host: process.env.DB_HOST,
@@ -18,3 +20,5 @@ module.exports = {
     directory: __dirname + "/database/seeds",
   },
 };
+
+export = options;

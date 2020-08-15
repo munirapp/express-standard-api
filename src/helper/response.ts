@@ -12,7 +12,7 @@ export default {
   start_time: () => dayjs(),
   format: (time, data, message) => ({
     diagnostic: {
-      request_time: `${time.format("YYYY-MM-DD hh:mm:ss")} (GMT+8)`,
+      request_time: `${time.format("YYYY-MM-DD hh:mm:ss")}`,
       execution_time: `${dayjs().diff(dayjs(time), "millisecond", true)} ms`,
       memory_usage: memory_format(process.memoryUsage().heapUsed),
       message,
