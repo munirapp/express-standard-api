@@ -1,13 +1,19 @@
 version: "3"
 services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: munirapp/express-standard-api
+
   web:
-    image: munirapp/nodejs-app
+    image: munirapp/express-standard-api
     depends_on:
       - db
       - redis
     ports:
       - "5000:5000"
-    command: bash -c "npm run build && npm run prod && bash migrate.sh"
+    command: bash -c " npm run prod && bash migrate.sh && npm run prod"
 
   db:
     image: postgres

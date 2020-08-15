@@ -1,7 +1,9 @@
 FROM node:13
-WORKDIR /usr/src/app
+LABEL author="Munir AP (softwaremakssar@gmail.com)"
+WORKDIR /app
 COPY package.json ./
 RUN npm install
 COPY . .
-RUN mv .env.example .env
+RUN mv .env.docker .env
 EXPOSE 5000
+CMD [ "npm","run","build" ]
