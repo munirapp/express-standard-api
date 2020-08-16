@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/munirapp/express-standard-api/master/logo.png/>
+    <img src="https://raw.githubusercontent.com/munirapp/express-standard-api/master/logo.png/">
     <h2 align="center">Express Standard API</h2>
 </p>
 
