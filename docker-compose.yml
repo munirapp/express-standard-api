@@ -13,7 +13,7 @@ services:
       - redis
     ports:
       - "5000:5000"
-    command: bash -c " npm run prod && bash migrate.sh && npm run prod"
+    command: bash -c "npm run build && npm run prod && bash migrate.sh"
 
   db:
     image: postgres
