@@ -1,5 +1,4 @@
 import app from "../../src/app";
-import knex from "../../database";
 import { redisFlushAsync, redisGetAsync } from "../../redis";
 import * as request from "supertest";
 import response from "../../src/helper/response";
@@ -10,12 +9,8 @@ describe("Testing Profile Controller", () => {
     await redisFlushAsync();
   });
 
-  afterEach(async () => {
-    await redisFlushAsync();
-  });
-
   describe("Testing response get all profiles", () => {
-    test("It should same response manual function and request", async () => {
+    test("It should same response manual function and request", async (done) => {
       const time = response.start_time();
       const path = "/profile/all";
       const dbResponseMessage = "success load data from database";
@@ -50,11 +45,13 @@ describe("Testing Profile Controller", () => {
         responseApi.diagnostic.message
       );
       expect(responseManual.data.rows).toEqual(responseApi.data.rows);
+
+      done();
     });
   });
 
   describe("Testing response get paginate profiles", () => {
-    test("It should same response manual function and request", async () => {
+    test("It should same response manual function and request", async (done) => {
       const time = response.start_time();
       const page = Math.floor(Math.random() * 1001);
       const path = "/profile/page/" + page;
@@ -90,11 +87,13 @@ describe("Testing Profile Controller", () => {
         responseApi.diagnostic.message
       );
       expect(responseManual.data.rows).toEqual(responseApi.data.rows);
+
+      done();
     });
   });
 
   describe("Testing response get detail profiles", () => {
-    test("It should same response manual function and request", async () => {
+    test("It should same response manual function and request", async (done) => {
       const time = response.start_time();
       const id = Math.floor(Math.random() * 10001);
       const path = "/profile/detail/" + id;
@@ -130,6 +129,8 @@ describe("Testing Profile Controller", () => {
         responseApi.diagnostic.message
       );
       expect(responseManual.data.rows).toEqual(responseApi.data.rows);
+
+      done();
     });
   });
 });

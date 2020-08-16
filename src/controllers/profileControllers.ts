@@ -3,6 +3,28 @@ import response from "../helper/response";
 import { redisGetAsync, redisSetAsync } from "../../redis";
 
 class ProfileControllers {
+  /**
+   *
+   * @param req express request object
+   * @param res express response object
+   *
+   * @swagger
+   * /profile/all:
+   *  get:
+   *    tags:
+   *      - "profiles"
+   *    summary: "Use to get data All Profiles"
+   *    description: ""
+   *    consumes:
+   *      - "application/json"
+   *    produces:
+   *      - "application/json"
+   *    responses:
+   *      '200':
+   *        description: "A successful response"
+   *      '500':
+   *        description: "Internal server error"
+   */
   async getAllProfile(req, res) {
     // Initiate response data and response time
     let dataAllProfile = null;
@@ -39,6 +61,33 @@ class ProfileControllers {
     }
   }
 
+  /**
+   *
+   * @param req express request object
+   * @param res express response object
+   *
+   * @swagger
+   * /profile/page/{pageNumber}:
+   *  get:
+   *    tags:
+   *      - "profiles"
+   *    summary: "Use to get data Profiles per page"
+   *    description: ""
+   *    consumes:
+   *      - "application/json"
+   *    produces:
+   *      - "application/json"
+   *    parameters:
+   *      - name: "pageNumber"
+   *        in: "path"
+   *        description: "Number profile's page"
+   *        type: "integer"
+   *    responses:
+   *      '200':
+   *        description: "a successful response"
+   *      '500':
+   *        description: "Internal server error"
+   */
   async getPaginateProfile(req, res) {
     // Initiate response data and response time
     let dataPaginateProfile = null;
@@ -83,6 +132,35 @@ class ProfileControllers {
     }
   }
 
+  /**
+   *
+   * @param req express request object
+   * @param res express response object
+   *
+   * @swagger
+   * /profile/detail/{id}:
+   *  get:
+   *    tags:
+   *      - "profiles"
+   *    summary: "Use to get data Profiles by id"
+   *    description: ""
+   *    consumes:
+   *      - "application/json"
+   *    produces:
+   *      - "application/json"
+   *    parameters:
+   *      - name: "id"
+   *        in: "path"
+   *        description: "Profile's ID"
+   *        type: "integer"
+   *    responses:
+   *      '200':
+   *        description: "a successful response"
+   *      '400':
+   *          description : "Bad Request"
+   *      '500':
+   *        description: "Internal server error"
+   */
   async getProfileID(req, res) {
     // Initiate response data and response time
     let dataProfileID = null;
