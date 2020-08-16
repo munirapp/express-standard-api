@@ -1,6 +1,9 @@
-![Logo](https://raw.githubusercontent.com/munirapp/express-standard-api/master/logo.png)
+<p align="center">
+    <img src="https://raw.githubusercontent.com/munirapp/express-standard-api/master/logo.png/>
+    <h2 align="center">Express Standard API</h2>
+</p>
 
-# :spider_web: Express Standard API
+---
 
 [![License: MIT](https://img.shields.io/github/license/munirapp/express-standard-api?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Star](https://img.shields.io/github/stars/munirapp/express-standard-api?style=for-the-badge)](https://github.com/munirapp/express-standard-api/stargazers)
