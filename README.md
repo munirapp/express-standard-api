@@ -1,7 +1,9 @@
 <p align="center">
     <img src="https://raw.githubusercontent.com/munirapp/express-standard-api/master/logo.png">
-    <h2 align="center">Express Standard API</h2>
 </p>
+
+<h2 align="center">Express Standard API</h2>
+<p align="center">A Standard Boilerplate for Node Express REST API</p>
 
 [![License: MIT](https://img.shields.io/github/license/munirapp/express-standard-api?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Star](https://img.shields.io/github/stars/munirapp/express-standard-api?style=for-the-badge)](https://github.com/munirapp/express-standard-api/stargazers)
@@ -13,8 +15,6 @@
 [![Knex](https://img.shields.io/github/package-json/dependency-version/munirapp/express-standard-api/knex?color=orange)](https://www.npmjs.com/package/knex)
 [![Redis](https://img.shields.io/github/package-json/dependency-version/munirapp/express-standard-api/redis?color=red)](https://www.npmjs.com/package/redis)
 
-a Standard Boilerplate for Node Express REST API
-
 ## :gear: Dependencies
 
 - Language : Typescript/Javascript
@@ -24,7 +24,7 @@ a Standard Boilerplate for Node Express REST API
 ## :astronaut: Development Installation
 
 ```
-mv .env.example .env
+mv .env.manual .env
 npm install
 bash migrate.sh
 npm run dev
@@ -42,12 +42,11 @@ npm run prod
 ### :whale: With Docker
 
 ```
-// Automatically Build Docker Image and trigger docker-compose (Running in Bash Terminal or WSL)
-bash server.sh
-
-// Manually Build Docker Image and Compose
-docker build -t munirapp/nodejs-app
+// Build and running docker container
 docker-compose up
+
+// Stop all running container
+docker-compose down
 ```
 
 ### :whale: List Ports Docker Containers
@@ -63,5 +62,3 @@ docker-compose up
 npm run build
 npm run test
 ```
-
-**Note**: Automatically testing when running apps via Docker

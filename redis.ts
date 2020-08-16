@@ -4,7 +4,7 @@ import { promisify } from "util";
 
 // Initiate dotenv config
 dotenv.config();
-// Creat redis client connection
+// Create redis client connection
 const client = redis.createClient({ host: process.env.REDIS_HOST });
 // Wrapper redis get and set in Promise
 const GetAsync = promisify(client.get).bind(client);

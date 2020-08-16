@@ -1,0 +1,23 @@
+{
+  "swaggerDefinition": {
+    "info": {
+      "title": "Express Standard API",
+      "description": "a Standard Boilerplate for Node Express REST API",
+      "version": "1.0.0",
+      "contact": {
+        "name": "Munir AP"
+      },
+      "servers": ["localhost:5000"]
+    },
+    "schemes": ["http"],
+    "tags": [
+      {
+        "name": "profiles",
+        "description": "All about profile data requeest"
+      }
+    ],
+    "host": "localhost:5000",
+    "basePath": "/"
+  },
+  "apis": ["**/controllers/*.ts"]
+}
