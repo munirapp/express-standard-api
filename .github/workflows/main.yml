@@ -14,13 +14,16 @@ jobs:
         node-version: [13.x]
     steps:
       - uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: npm install
       - name: Run Docker Environment
         run: |
           docker-compose build
           docker-compose up -d
       - name: Run Jest Testing
         run: |
-          ls
+          ls -all
+          npm run test
         working-directory: ./dist
       - name: Run migration table
         run: |
