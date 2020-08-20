@@ -5,3 +5,4 @@ COPY package.json ./
 RUN npm install
 COPY . .
 RUN mv .env.docker .env
+CMD [ "npm", "run", "build" ]

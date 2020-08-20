@@ -14,8 +14,11 @@ jobs:
         node-version: [13.x]
     steps:
       - uses: actions/checkout@v2
-      - name: Build Docker Image
+      - name: Run Docker Environment
         run: |
           docker-compose build
           docker-compose up -d
-        working-directory: .
+      - name: Run Jest Testing
+        run: |
+          npm run test
+          curl localhost:5000
