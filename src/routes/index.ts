@@ -5,9 +5,7 @@ import profileControllers from "../controllers/profileControllers";
 const router = new Router();
 
 // Base Routes
-router.get("/", (req, res) =>
-  res.send("This is an API Standard for NodeJS v 1.0.0")
-);
+router.get("/", (req, res) => res.send("This is an API Standard for NodeJS"));
 
 // Profile Routes
 router.get("/profile/all", profileControllers.getAllProfile);
