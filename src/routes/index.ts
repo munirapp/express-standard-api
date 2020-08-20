@@ -1,15 +1,22 @@
-import { Router } from "express";
-import profileControllers from "../controllers/profileControllers";
+import { Router } from 'express'
+import { Request as Req, Response as Res } from 'expres'
+import profileControllers from '../controllers/profileControllers'
 
-// Initiate Router Express
-const router = new Router();
+export class IndexRoute {
+  private router
 
-// Base Routes
-router.get("/", (req, res) => res.send("This is an API Standard for NodeJS"));
+  constructor() {
+    this.router = new Router()
+  }
 
-// Profile Routes
-router.get("/profile/all", profileControllers.getAllProfile);
-router.get("/profile/page/:number?", profileControllers.getPaginateProfile);
-router.get("/profile/detail/:id?", profileControllers.getProfileID);
-
-export default router;
+  routes() {
+    return [
+      // Base Routes
+      this.router.get('/', (req: Req, res: Res) => res.send('This is an API Standard for NodeJS')),
+      // Profile Routes
+      this.router.get('/profile/all', profileControllers.getAllProfile),
+      this.router.get('/profile/page/:number?', profileControllers.getPaginateProfile),
+      this.router.get('/profile/detail/:id?', profileControllers.getProfileID)
+    ]
+  }
+}
