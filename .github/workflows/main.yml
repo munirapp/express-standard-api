@@ -20,9 +20,9 @@ jobs:
           docker-compose up -d
       - name: Run Jest Testing
         run: |
-          docker exec -it express-api /bin/bash
+          docker exec -t express-api /bin/bash
           npm run test
       - name: Run migration table
         run: |
-          docker exec -it express-api /bin/bash
+          docker exec -t express-api /bin/bash
           bash migrate.sh
