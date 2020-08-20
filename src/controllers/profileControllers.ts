@@ -2,7 +2,7 @@ import { Model } from '../models/root.model'
 import response from '../helper/response'
 import { redisGetAsync, redisSetAsync } from '../../redis'
 
-class ProfileControllers extends Model {
+export class ProfileControllers extends Model {
   constructor() {
     super()
   }
@@ -172,5 +172,3 @@ class ProfileControllers extends Model {
     }
   }
 }
-
-export default new ProfileControllers()
