@@ -1,25 +1,35 @@
-import * as dotenv from "dotenv";
-import * as express from "express";
-import * as cors from "cors";
-import * as bodyParser from "body-parser";
-import * as swaggerOptions from "../swagger.json";
-import * as swaggerJsDoc from "swagger-jsdoc";
-import * as swaggerUi from "swagger-ui-express";
-import routes from "./routes";
+import dotenv from 'dotenv'
+dotenv.config()
+import express from 'express'
+import cors from 'cors'
+import bodyParser from 'body-parser'
+import swaggerOptions from '../swagger.json'
+import swaggerJsDoc from 'swagger-jsdoc'
+import swaggerUi from 'swagger-ui-express'
+import { Route } from './routes/root.route'
 
-// Initiate express
-const app = express();
-// Use Cors
-app.use(cors());
-// Use Bodyparser
-app.use(bodyParser.json());
-// Initiate dotenv config
-dotenv.config();
-// Initiate Swagger Docs Options
-const swaggerDocs = swaggerJsDoc(swaggerOptions);
-// Initiate Basic Routes
-app.use("/", routes);
-// Initiate Documentaion API Routes
-app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+export class App extends Route {
+  private app
+  private swagger
 
-export default app;
+  constructor() {
+    super()
+    this.app = express()
+    this.swagger = swaggerJsDoc(swaggerOptions)
+  }
+
+  server() {
+    // Use Cors
+    this.app.use(cors())
+    // Use Bodyparser
+    this.app.use(bodyParser.json())
+    // Initiate Basic Routes
+    this.app.use('/', this.route())
+    // Initiate Documentaion API Routes
+    this.app.use('/docs', swaggerUi.serve, swaggerUi.setup(this.swaggerDocs))
+    // Listen and running server
+    this.app.listen(process.env.SERVER_PORT, () => {
+      console.log(`Running express on port ${process.env.SERVER_PORT}`)
+    })
+  }
+}
