@@ -1,11 +1,12 @@
 import { Router } from 'express'
 import { Request as Req, Response as Res } from 'expres'
-import profileControllers from '../controllers/profileControllers'
+import { Controller } from '../controllers/root.controller'
 
-export class IndexRoute {
+export class IndexRoute extends Controller {
   private router
 
   constructor() {
+    super()
     this.router = new Router()
   }
 
@@ -14,9 +15,9 @@ export class IndexRoute {
       // Base Routes
       this.router.get('/', (req: Req, res: Res) => res.send('This is an API Standard for NodeJS')),
       // Profile Routes
-      this.router.get('/profile/all', profileControllers.getAllProfile),
-      this.router.get('/profile/page/:number?', profileControllers.getPaginateProfile),
-      this.router.get('/profile/detail/:id?', profileControllers.getProfileID)
+      this.router.get('/profile/all', this.profile().getAllProfile),
+      this.router.get('/profile/page/:number?', this.profile().getPaginateProfile),
+      this.router.get('/profile/detail/:id?', this.profile().getProfileID)
     ]
   }
 }
