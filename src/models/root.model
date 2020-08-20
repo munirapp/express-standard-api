@@ -1,0 +1,7 @@
+import { ProfileSchema } from './profile'
+
+export class Model {
+  profileModel() {
+    return ProfileSchema
+  }
+}
