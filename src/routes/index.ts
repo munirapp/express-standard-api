@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { Request as Req, Response as Res } from 'expres'
+import { Request as Req, Response as Res } from 'express'
 import { Controller } from '../controllers/root.controller'
 
 export class IndexRoute extends Controller {
