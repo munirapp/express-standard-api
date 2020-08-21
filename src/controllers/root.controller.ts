@@ -1,7 +1,7 @@
 import { ProfileControllers } from './profileControllers'
 
 export class Controller {
-  private profile() {
+   profile() {
     return new ProfileControllers()
   }
 }
