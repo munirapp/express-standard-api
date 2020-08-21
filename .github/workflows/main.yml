@@ -23,8 +23,6 @@ jobs:
       - name: Run Jest Testing
         run: |
           ls -all
-          npm run test
-        working-directory: ./dist
       - name: Run migration table
         run: |
           bash migrate.sh
