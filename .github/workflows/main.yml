@@ -26,7 +26,9 @@ jobs:
       - name: Check Running Docker Containers
         run: |
           docker ps
-      - name: Testing exec
+      - name: Migrating Data
+        run: docker exec express-api bash migrate.sh
+      - name: Running Unit Test
         run: docker exec express-api npm run test
       - name: Get All Outpout Workflow
         run: |
