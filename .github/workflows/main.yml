@@ -23,17 +23,12 @@ jobs:
           docker-compose build
           docker-compose up -d
           mv .env.docker .env
-      - name: Run Jest Testing
-        id: jest
+      - name: Check Running Docker Containers
         run: |
-          npm run test
-      - name: Run migration table
-        id: table
-        run: |
-          bash migrate.sh
+          docker ps
+      - name: Testing exec
+        run: docker exec express-api
       - name: Get All Outpout Workflow
         run: |
           echo "Time Install Dependencies Workflow was ${{ steps.npm.outputs.time }}"
           echo "Time Docker Workflow was ${{ steps.docker.outputs.time }}"
-          echo "Time Unit Test Workflow was ${{ steps.jest.outputs.time }}"
-          echo "Time Migration Workflow was ${{ steps.table.outputs.time }}"
