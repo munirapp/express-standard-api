@@ -14,9 +14,6 @@ jobs:
         node-version: [13.x]
     steps:
       - uses: actions/checkout@v2
-      - name: Install Dependencies
-        id: npm
-        run: npm install
       - name: Run Docker Environment
         id: docker
         run: |
@@ -30,7 +27,3 @@ jobs:
         run: docker exec express-api bash migrate.sh
       - name: Running Unit Test
         run: docker exec express-api npm run test
-      - name: Get All Outpout Workflow
-        run: |
-          echo "Time Install Dependencies Workflow was ${{ steps.npm.outputs.time }}"
-          echo "Time Docker Workflow was ${{ steps.docker.outputs.time }}"
