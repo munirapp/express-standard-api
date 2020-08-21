@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "tsnd --watch src/**/*.ts -P tsconfig.json -T src/server.ts",
     "build": "tsc",
-    "prod": "node ./dist/src/server.js",
-    "test": "jest"
+    "prod": "nodemon ./dist/src/server.js",
+    "test": "jest --forceExit"
   },
   "repository": {
     "type": "git",
