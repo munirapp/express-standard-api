@@ -6,7 +6,7 @@ describe("Testing knex database functional", () => {
   });
 
   test("It should be return 10000", async (done) => {
-    const data = await knex.select().from("profiles");
+    const data = await knex.select().from("profile");
     expect(data.length).toEqual(10000);
     done();
   });
