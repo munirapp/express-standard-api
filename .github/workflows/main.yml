@@ -1,20 +1,29 @@
 name: Express Standard API Actions
 
-on: 
+on:
   push:
-    branches: [master]
+    branches: [master, development]
   pull_request:
     branches: [master]
 
 jobs:
-   build:
-     runs-on: ubuntu-latest
-     strategy:
-       matrix:
-         node-version: [13.x]
-     steps:
+  container-job:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [13.x]
+    steps:
       - uses: actions/checkout@v2
-      - name: Build Docker Image
+      - name: Run Docker Environment
+        id: docker
         run: |
           docker-compose build
           docker-compose up -d
+          mv .env.docker .env
+      - name: Check Running Docker Containers
+        run: |
+          docker ps
+      - name: Migrating Data
+        run: docker exec express-api bash migrate.sh
+      - name: Running Unit Test
+        run: docker exec express-api npm run test

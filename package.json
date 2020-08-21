@@ -6,7 +6,7 @@
     "dev": "nodemon ./src/server.ts",
     "build": "tsc",
     "prod": "nodemon ./dist/src/server.js",
-    "test": "jest"
+    "test": "jest --forceExit"
   },
   "repository": {
     "type": "git",
