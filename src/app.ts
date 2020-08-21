@@ -18,7 +18,7 @@ export class App extends Route {
     this.swagger = swaggerJsDoc(swaggerOptions)
   }
 
-  server() {
+  init() {
     // Use Cors
     this.app.use(cors())
     // Use Bodyparser
