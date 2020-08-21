@@ -26,7 +26,7 @@ export class App extends Route {
     // Initiate Basic Routes
     this.app.use('/', this.route())
     // Initiate Documentaion API Routes
-    this.app.use('/docs', swaggerUi.serve, swaggerUi.setup(this.swaggerDocs))
+    this.app.use('/docs', swaggerUi.serve, swaggerUi.setup(this.swagger))
     // Listen and running server
     this.app.listen(process.env.SERVER_PORT, () => {
       console.log(`Running express on port ${process.env.SERVER_PORT}`)
