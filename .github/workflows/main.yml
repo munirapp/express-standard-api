@@ -20,11 +20,9 @@ jobs:
           docker-compose build
           docker-compose up -d
           mv .env.docker .env
-          ls -all
       - name: Run Jest Testing
         id: jest
         run: |
-          ls -all
           npm run test
       - name: Run migration table
         id: table

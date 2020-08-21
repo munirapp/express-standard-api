@@ -9,9 +9,6 @@ services:
   web:
     image: munirapp/express-standard-api
     container_name: express-api
-    volumes:
-      - ./dist:/app/dist
-      - ./node_modules:/app/node_modules
     depends_on:
       - db
       - redis
