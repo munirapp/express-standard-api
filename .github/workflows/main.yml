@@ -15,14 +15,23 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run Docker Environment
+        id: docker
         run: |
           docker-compose build
           docker-compose up -d
           mv .env.docker .env
           ls -all
       - name: Run Jest Testing
+        id: jest
         run: |
+          ls -all
           npm run test
       - name: Run migration table
+        id: table
         run: |
           bash migrate.sh
+      - name: Get All Outpout Workflow
+        run: |
+          echo "Time Docker Workflow was ${{ steps.docker.outputs.time }}"
+          echo "Time Unit Test Workflow was ${{ steps.jest.outputs.time }}"
+          echo "Time Migration Workflow was ${{ steps.table.outputs.time }}"
