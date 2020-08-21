@@ -7,7 +7,7 @@ on:
     branches: [master]
 
 jobs:
-  build:
+  container-job:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -27,7 +27,7 @@ jobs:
         run: |
           docker ps
       - name: Testing exec
-        run: docker exec express-api
+        run: docker exec express-api npm run test
       - name: Get All Outpout Workflow
         run: |
           echo "Time Install Dependencies Workflow was ${{ steps.npm.outputs.time }}"

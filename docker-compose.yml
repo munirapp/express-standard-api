@@ -1,20 +1,13 @@
 version: "3"
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: munirapp/express-standard-api
-
   web:
-    image: munirapp/express-standard-api
+    build: .
     container_name: express-api
     depends_on:
       - db
       - redis
     ports:
       - "5000:5000"
-    command: bash -c "npm run build && npm run prod"
 
   db:
     image: postgres
