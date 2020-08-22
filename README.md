@@ -86,18 +86,55 @@ docker-compose down
 - 6379:6379 Redis
 - 8080:8080 Adminer
 
+### :camera: Screenshot
+
+![Docker Running Container](https://i.ibb.co/W5jNCcx/image.png)
+![Adminer Dashboard](https://i.ibb.co/0JdHD9D/image.png)
+
 ## :test_tube: Running Unit Test
+
+### Manual
 
 ```
 npm run test
 ```
 
+**Note**: If you run manual test, make sure postgre and redis server is running or that will be failed
+
+### :whale: With Docker
+
+```
+docker exec express-api npm run test
+```
+
+**Note**: Make sure you have run docker production installation before run it
+
+### :camera: Screenshot
+
+![Unit Test Result](https://i.ibb.co/Nt2rXmJ/image.png)
+
 ## :file_cabinet: Database Migrations
+
+### Manual
 
 ```
 // Run it in Bash terminal
 bash migrate.sh
 ```
+
+**Note**: If you run manual migration, make sure postgre server is running or that will be error
+
+### :whale: With Docker
+
+```
+docker exec express-api bash migrate.sh
+```
+
+**Note**: Make sure you have run docker production installation before run it
+
+### :camera: Screenshot
+
+![Migration Result](https://i.ibb.co/Hdv434Q/image.png)
 
 ## :file_folder: Structure Folder
 
@@ -131,3 +168,7 @@ bash migrate.sh
 ## :writing_hand: Documentations API
 
 After you running development/production Installation you can see documentation at : [http://localhost:5000/docs](http://localhost:5000/docs)
+
+### :camera: Screenshot
+
+![Swagger Docs](https://i.ibb.co/h1fxjVJ/image.png)
