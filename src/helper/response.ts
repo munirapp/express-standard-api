@@ -1,4 +1,4 @@
-import * as dayjs from 'dayjs'
+import dayjs from 'dayjs'
 
 const memory_format = (data) => {
 	const heap = data / 1024 / 1024

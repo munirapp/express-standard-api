@@ -1,8 +1,8 @@
-import { Router } from 'express'
+import express from 'express'
 import profileControllers from '../controllers/profileControllers'
 
 // Initiate Router Express
-const router = new Router()
+const router = express.Router()
 
 // Base Routes
 router.get('/', (req, res) => res.send('This is an API Standard for NodeJS'))
