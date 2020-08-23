@@ -1,6 +1,4 @@
-import * as dotenv from "dotenv";
-
-dotenv.config();
+import 'dotenv/config'
 
 const options = {
   client: "pg",

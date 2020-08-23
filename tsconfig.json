@@ -1,12 +1,33 @@
 {
-  "compilerOptions": {
-    "sourceMap": true,
-    "target": "es2017",
-    "outDir": "./dist",
-    "baseUrl": "./src",
-    "module": "CommonJS",
-    "resolveJsonModule": true
-  },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
+	"compilerOptions": {
+		"baseUrl": "./src",
+		"outDir": "build",
+		"module": "ESNext",
+		"moduleResolution": "Node",
+		"target": "ESNext",
+		"lib": ["ESNext"],
+		"typeRoots": ["node_modules/@types"],
+		"esModuleInterop": true,
+		"downlevelIteration": true,
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"importHelpers": true,
+		"resolveJsonModule": true,
+		"removeComments": true,
+		"strict": false,
+		"noImplicitAny": false,
+		"noUnusedParameters": false
+	},
+	"exclude": ["node_modules"],
+	"include": ["src/**/*.ts"],
+	"paths": {
+		"tslib": ["node_modules/tslib/tslib.d.ts"]
+	},
+	"ts-node": {
+		"compilerOptions": {
+			"module": "CommonJS"
+		},
+		"files": true,
+		"pretty": true
+	}
 }

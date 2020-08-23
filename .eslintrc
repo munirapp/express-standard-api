@@ -1,0 +1,24 @@
+{
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"project": "./tsconfig.json"
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:@typescript-eslint/recommended-requiring-type-checking",
+		"prettier",
+		"prettier/@typescript-eslint",
+		"plugin:prettier/recommended"
+	],
+	"rules": {
+		"comma-dangle": 0,
+		"no-ternary": 0,
+		"no-implicit-globals": 0,
+		"@typescript-eslint/no-explicit-any": 0,
+		"prettier/prettier": 0
+	},
+	"env": {
+		"node": true
+	}
+}
