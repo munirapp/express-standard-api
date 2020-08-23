@@ -1,4 +1,5 @@
 import 'dotenv/config'
+import path from 'path'
 
 const options = {
   client: "pg",
@@ -12,10 +13,10 @@ const options = {
   pool: { min: 2, max: 10 },
   migrations: {
     tablename: "migrations",
-    directory: __dirname + "/database/migrations",
+    directory: path.resolve(process.cwd(), 'database/migrations'),
   },
   seeds: {
-    directory: __dirname + "/database/seeds",
+    directory: path.resolve(process.cwd(), 'database/seeds'),
   },
 };
 
